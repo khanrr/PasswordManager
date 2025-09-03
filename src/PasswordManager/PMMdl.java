@@ -13,10 +13,7 @@ import java.util.TreeMap;
 
 public class PMMdl {
     //Initialize required variables
-    private String UName;
-    private String AName;
-    private String UID;
-    private String PW;
+    private String UName, AName, UID, PW;
     private TreeMap<String, String> info;
     private List<String> aInfo;
     private File accounts;
@@ -51,12 +48,10 @@ public class PMMdl {
 
     //Puts the data into a list and maps it to the user
     public void setList(){
-        //info = new TreeMap<>();
         aInfo = new ArrayList<>();
         aInfo.add(getAName());
         aInfo.add(getUID());
         aInfo.add(getPW());
-        //info.put(getUName(), aInfo.toString());
     }
 
 
