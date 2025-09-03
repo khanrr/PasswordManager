@@ -212,7 +212,7 @@ public class PMView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void accountTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountTxtFieldActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_accountTxtFieldActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
