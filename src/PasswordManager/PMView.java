@@ -237,7 +237,7 @@ public class PMView extends javax.swing.JFrame {
         String account = accountTxtField.getText();
         String UID = UIDTxtField.getText();
         String pw = pwTxtField.getText();
-        ctrl.setUName(name);
+        ctrl.setUName();
         ctrl.setAName(account);
         ctrl.setUID(UID);
         ctrl.setPW(pw);

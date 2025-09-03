@@ -1,9 +1,8 @@
 package PasswordManager;
 
-import java.io.BufferedReader;
+
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,23 +11,15 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class PMMdl {
-    //Initialize required variables
-    private String UName, AName, UID, PW;
-    private TreeMap<String, String> info;
+    private String AName;
+    private String UID;
+    private String PW;
     private List<String> aInfo;
     private File accounts;
-    private BufferedWriter accountInfo;
-    private BufferedReader br;
-    private String listasString;
-    private String account;
-    private List<String> details;
-    private Scanner scanner;
-    private ArrayList<String> keys;
-    private ArrayList<String> values;
 
     //Set the user's name
-    public void setUName(String uName){
-        UName = uName;
+    public void setUName(){
+        //Initialize required variables
     }
 
     //Set the account name
@@ -60,11 +51,6 @@ public class PMMdl {
         accounts = new File(UName + ".txt");
     }
 
-    //Get the user's name
-    public String getUName(){
-        return UName;
-    }
-
     //Get the account name
     public String getAName(){
         return AName;
@@ -85,15 +71,10 @@ public class PMMdl {
         return aInfo;
     }
 
-    //Set file name
-    public String getFileName(){
-        return accounts.toString();
-    }
-
     //If the file does not exist, create a file, then add the Map data to it in a String
     public void fileWrite() throws IOException{
-        accountInfo = new BufferedWriter(new FileWriter(accounts, true));
-        listasString = getList().toString().replaceAll("[\\p{Ps}\\p{Pe}]", "");
+        BufferedWriter accountInfo = new BufferedWriter(new FileWriter(accounts, true));
+        String listasString = getList().toString().replaceAll("[\\p{Ps}\\p{Pe}]", "");
         if(accounts.createNewFile()){
 
             accountInfo.write(listasString);
@@ -109,16 +90,16 @@ public class PMMdl {
 
     //Reads each line and puts the first entry of each line as a key and the remaining as values
     //then returns the values for the key with the account name
-    public String readFile(String searchname, String acctname) throws FileNotFoundException, IOException{
-        File myfile = new File(searchname + ".txt");
-        info = new TreeMap<>();
-        scanner = new Scanner(myfile);
+    public String readFile(String searchName, String acctName) throws IOException{
+        File myfile = new File(searchName + ".txt");
+        TreeMap<String, String> info = new TreeMap<>();
+        Scanner scanner = new Scanner(myfile);
         while(scanner.hasNextLine()){
-            account = scanner.nextLine();
+            String account = scanner.nextLine();
             String[] parts = account.split(",", 2);
             info.put(parts[0], parts[1]);
         }
         scanner.close();
-        return info.get(acctname);
+        return info.get(acctName);
     }
 }
