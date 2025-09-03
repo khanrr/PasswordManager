@@ -78,14 +78,12 @@ public class PMMdl {
         if(accounts.createNewFile()){
 
             accountInfo.write(listasString);
-            accountInfo.newLine();
-            accountInfo.close();
         }
         else{//If the file exists, append the Map data to it in a String
             accountInfo.append(listasString);
-            accountInfo.newLine();
-            accountInfo.close();
         }
+        accountInfo.newLine();
+        accountInfo.close();
     }
 
     //Reads each line and puts the first entry of each line as a key and the remaining as values
